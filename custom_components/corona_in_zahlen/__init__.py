@@ -8,6 +8,8 @@ import async_timeout
 import asyncio
 import bs4
 
+from CoronaParser import CoronaParser
+
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
 
@@ -18,7 +20,9 @@ from .const import DOMAIN, BASE_DOMAIN, OPTION_TOTAL
 #from .config_flow import county
 
 #ENDPOINT = BASE_DOMAIN + 'Ebersberg'
-ENDPOINT = 'https://www.corona-in-zahlen.de/landkreise/Ebersberg'
+#ENDPOINT = 'https://www.corona-in-zahlen.de/landkreise/Ebersberg'
+
+DISTRICT = "SK München"
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -71,30 +75,20 @@ async def get_coordinator(hass):
         return hass.data[DOMAIN]
 
     async def async_get_data():
-        with async_timeout.timeout(30):
-            response = await aiohttp_client.async_get_clientsession(hass).get(ENDPOINT)
-            raw_html = await response.text()
+        coronaParser = CoronaParser()
+        data = coronaParser.get_value(DISTRICT)
 
-        data = bs4.BeautifulSoup(raw_html, "html.parser")
-        
+        if data is None:
+            _LOGGER.exception("Could not process district {}".format(DISTRICT))
+            return result
+
         result = dict()
-        county = data.select("body > div:nth-child(3) > div:nth-child(1) > div > div.text-truncate > small > a:nth-child(3)")
-        incidence = data.select("body > div:nth-child(3) > div.row.row-cols-1.row-cols-md-3 > div:nth-child(4) > div > div > p.card-title > b")
-        cases = data.select("body > div:nth-child(3) > div.row.row-cols-1.row-cols-md-3 > div:nth-child(2) > div > div > p.card-title > b")
-        deaths = data.select("body > div:nth-child(3) > div.row.row-cols-1.row-cols-md-3 > div:nth-child(5) > div > div > p.card-title > b")
+        county = DISTRICT
+        incidence = data["cases7_per_100k"]
+        cases = data["cases"]
+        deaths = data["deaths"]
 
-        try:
-            county = sanitize_county(county[0].get_text(" ", strip=True))
-            incidence = parse_num(incidence[0].get_text(" ", strip=True), t=float)
-            cases = parse_num(cases[0].get_text(" ", strip=True))
-            deaths = parse_num(deaths[0].get_text(" ", strip=True))
-
-            result[county] = dict(cases=cases, deaths=deaths, incidence=incidence)
-            _LOGGER.debug("corona_in_zahlen: {!r}".format(result))
-        except:
-            e = sys.exc_info()[0]
-            _LOGGER.exception("Error processing {}".format(e))
-
+        result[county] = dict(cases=cases, deaths=deaths, incidence=incidence)
         return result
 
     hass.data[DOMAIN] = DataUpdateCoordinator(
