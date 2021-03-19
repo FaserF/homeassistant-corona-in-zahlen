@@ -14,11 +14,12 @@ Then add the desired configuration via Settings -> Integrations -> corona-in-zah
 ## Installation
 Pre-requisits:
 1. Download this repo as a zip file.
-2. Edit the following line: https://github.com/FaserF/homeassistant-corona-in-zahlen/blob/master/corona_in_zahlen/__init__.py#L21
+2. Edit the following file at line 21: https://github.com/FaserF/homeassistant-corona-in-zahlen/blob/master/custom_components/corona_in_zahlen/__init__.py#L21
 You will find it under custom_components/corona_in_zahlen/__init__.py
 
 And replace "Ebersberg" with your Location.
-Then continue with "2. Manual".
+3. Save the file
+4. Then continue with "2. Manual".
 
 ### 1. Using HACS (if your location is already supported with this addon)
 
