@@ -1,0 +1,10 @@
+{
+  "domain": "corona_in_zahlen",
+  "name": "corona-in-zahlen.de",
+  "version": "0.0.1",
+  "config_flow": true,
+  "documentation": "https://github.com/faserf/homeassistant-corona-in-zahlen",
+  "requirements": ["beautifulsoup4==4.8.2"],
+  "dependencies": [],
+  "codeowners": ["@foosel","@faserf"]
+}

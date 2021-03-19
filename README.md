@@ -14,7 +14,7 @@ Then add the desired configuration via Settings -> Integrations -> corona-in-zah
 ## Installation
 Pre-requisits:
 1. Download this repo as a zip file.
-2. Edit the following line: https://github.com/FaserF/homeassistant-corona-in-zahlen/blob/master/corona_in_zahlen/__init__.py#L20
+2. Edit the following line: https://github.com/FaserF/homeassistant-corona-in-zahlen/blob/master/corona_in_zahlen/__init__.py#L21
 You will find it under custom_components/corona_in_zahlen/__init__.py
 
 And replace "Ebersberg" with your Location.
@@ -28,7 +28,7 @@ Open your HACS Settings and add
 
 as custom repository URL.
 
-Then install the "Coronavirus Hessen" integration.
+Then install the "Corona-in-zahlen.de" integration.
 
 If you use this method, your component will always update to the latest version.
 

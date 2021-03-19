@@ -17,7 +17,8 @@ from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, Upda
 from .const import DOMAIN, BASE_DOMAIN, OPTION_TOTAL
 #from .config_flow import county
 
-ENDPOINT = BASE_DOMAIN + 'Ebersberg'
+#ENDPOINT = BASE_DOMAIN + 'Ebersberg'
+ENDPOINT = 'https://www.corona-in-zahlen.de/landkreise/Ebersberg'
 
 _LOGGER = logging.getLogger(__name__)
 
