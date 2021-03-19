@@ -77,18 +77,19 @@ async def get_coordinator(hass):
     async def async_get_data():
         coronaParser = CoronaParser()
         data = coronaParser.get_value(DISTRICT)
+        
+        result = dict()
 
         if data is None:
             _LOGGER.exception("Could not process district {}".format(DISTRICT))
             return result
 
-        result = dict()
-        county = DISTRICT
-        incidence = data["cases7_per_100k"]
-        cases = data["cases"]
-        deaths = data["deaths"]
-
-        result[county] = dict(cases=cases, deaths=deaths, incidence=incidence)
+        result[DISTRICT] = dict(
+                cases=data["cases"],
+                deaths=data["deaths"],
+                incidence=data["cases7_per_100k"]
+                )
+        
         return result
 
     hass.data[DOMAIN] = DataUpdateCoordinator(
