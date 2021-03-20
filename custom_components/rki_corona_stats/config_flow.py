@@ -1,6 +1,6 @@
 """Config flow for rki_corona_stats integration."""
 import logging
-import CoronaParser from CoronaParser
+from .CoronaParser import CoronaParser
 
 import voluptuous as vol
 
