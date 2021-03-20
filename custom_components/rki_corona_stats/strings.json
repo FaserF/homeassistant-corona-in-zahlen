@@ -1,0 +1,16 @@
+{
+    "config": {
+      "title": "Coronavirus rki_corona_stats",
+      "step": {
+        "user": {
+          "title": "Input a district to monitor.",
+          "data": {
+            "district": "District"
+          }
+        }
+      },
+      "abort": {
+        "already_configured": "This district is already configured."
+      }
+    }
+}

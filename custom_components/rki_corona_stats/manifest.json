@@ -1,0 +1,9 @@
+{
+  "domain": "rki_corona_stats",
+  "name": "RKI Corona Stats",
+  "version": "1.0.0",
+  "config_flow": true,
+  "documentation": "https://github.com/FaserF/homeassistant-rki-corona-stats",
+  "dependencies": [],
+  "codeowners": ["@foosel","@faserf"]
+}
