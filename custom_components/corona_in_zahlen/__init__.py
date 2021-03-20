@@ -8,7 +8,7 @@ import async_timeout
 import asyncio
 import bs4
 
-from CoronaParser import CoronaParser
+from .CoronaParser import CoronaParser
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
@@ -18,11 +18,7 @@ from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, Upda
 
 from .const import DOMAIN, BASE_DOMAIN, OPTION_TOTAL
 #from .config_flow import county
-
-#ENDPOINT = BASE_DOMAIN + 'Ebersberg'
-#ENDPOINT = 'https://www.corona-in-zahlen.de/landkreise/Ebersberg'
-
-DISTRICT = "SK München"
+DISTRICT = "LK Ebersberg"
 
 _LOGGER = logging.getLogger(__name__)
 
