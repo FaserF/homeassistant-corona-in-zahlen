@@ -83,7 +83,7 @@ async def get_coordinator(hass):
         result[DISTRICT] = dict(
                 cases=data["cases"],
                 deaths=data["deaths"],
-                incidence=data["cases7_per_100k"]
+                incidence = round(int(data["cases7_per_100k"]), 3)
                 )
         
         return result
