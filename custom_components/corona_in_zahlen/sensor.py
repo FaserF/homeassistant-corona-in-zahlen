@@ -56,7 +56,7 @@ class CoronaHessenSensor(Entity):
 
     @property
     def state(self):
-        return self.coordinator.data[self.county]["cases"]
+        return self.coordinator.data[self.county]["incidence"]
 
     @property
     def device_state_attributes(self):
