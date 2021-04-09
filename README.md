@@ -17,7 +17,7 @@ Pre-requisits:
 2. Edit the following file at line 21: https://github.com/FaserF/homeassistant-corona-in-zahlen/blob/master/custom_components/corona_in_zahlen/__init__.py#L21
 You will find it under custom_components/corona_in_zahlen/__init__.py
 
-And replace "LK Ebersberg" with your Location. (LK for "Landkreis" and SK for "Stadtkreis")
+And replace "Ebersberg" with your Location.
 3. Save the file
 4. Then continue with "2. Manual".
 
@@ -63,6 +63,6 @@ For a better look-and-feel you'll need to install [lovelace-multiple-entity-row]
       name: Incidence
   show_state: false
   icon: 'mdi:biohazard'
-  name: MyCounty
+  name: Hessen
   secondary_info: last-changed
 ```
