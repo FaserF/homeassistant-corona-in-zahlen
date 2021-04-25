@@ -1,3 +1,5 @@
+# DEPRECATED!!!! Use this instead: https://github.com/knorr3/coronavirus_germany
+
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/custom-components/hacs)
 # Corona-in-zahlen.de Homeassistant Sensor
 Gets the latest corona stats from corona-in-zahlen.de 
